@@ -1,0 +1,31 @@
+# HarmonyOS Next development must be done: Cangjie IDE plug-in usage guide
+> This article aims to deeply explore the technical details of Huawei HarmonyOS Next system and summarize them based on actual development practices.
+It is mainly used as a carrier of technology sharing and communication, and it is inevitable to miss mistakes. All colleagues are welcome to put forward valuable opinions and questions in order to make common progress.
+This article is original content, and any form of reprinting must indicate the source and original author.
+
+In the vast universe developed by HarmonyOS Next, the Cangjie IDE plug-in is the extremely powerful "development warship" in the hands of developers. It is equipped with a series of super practical functions that can help us ride the wind and waves in the galaxy of code and efficiently create various wonderful applications.Today, let’s talk about how to use the Cangjie IDE plug-in.
+
+## First experience of IDE plug-in
+When it comes to Cangjie IDE plug-in for the first time, it is like a novice crew member boarding an advanced battleship, full of curiosity and expectation.This plug-in is mainly equipped with two "motherships" VSCode and Huawei DevEco Studio. The installation process is as simple as installing a new component on a warship, which can be used directly after installation.
+
+After the installation is completed, you will find that it is like a caring butler, arranges the project management clearly.In DevEco Studio, creating a Cangjie HarmonyOS project is like starting a new mission on a warship, which can be done with a few clicks.Opening an existing Cangjie project in VSCode is like finding the corresponding combat module on the warship, which is quick and convenient.
+
+This is like when you were in Android development, you had to work back and forth in various complex configuration files when building projects, looking for information and changing parameters, which was a headache.But with the Cangjie IDE plug-in, those tedious steps are simplified with one click, and the first step of development becomes relaxed and pleasant, greatly improving our development enthusiasm.
+
+## In-depth exploration of plug-in functions
+### Coding Assist: Intelligent Navigator in the Code World
+Entering the coding stage, the Cangjie IDE plug-in instantly becomes an intelligent navigation device, guiding us in the maze of code.The code highlighting function is like painting different colors on different types of codes, and the keywords, variables, and functions are clear at a glance, so you no longer have to worry about being dazzled by the wrong code.The code completion function is even more powerful. Just type a few letters, it can guess the code you want, and then complete it thoughtfully, just like it drills into your head and knows what you are going to do in the next second.
+
+When writing a simple calculation function, enter "fun", it prompts "func", and also gives the complete template for the function definition, even the parameters and return value types are marked for you.The syntax diagnosis function is like a strict grammar teacher. Even if there is a little grammar error in the code, it can immediately discover and give detailed error prompts, allowing you to quickly modify it.The floating prompt is like a little assistant on standby at any time. By hovering over the code, you can display relevant explanations and instructions, and you no longer have to frequently translate documents and search information.
+
+### Compilation and construction and code debugging: Create a stable and solid code warship
+Compilation and construction are the key links to check whether the code can run normally. The Cangjie IDE plug-in performs very well in this regard.On the HarmonyOS DevEco Studio dock, it can easily push the Cangjie HAP packet to the mobile phone to run, just like accurately dropping weapons on the warship to the target position.And during the compilation process, if there is a problem, it will clearly display the error message, helping us quickly locate and resolve the problem.
+
+The code debugging function is even more powerful. The breakpoint function is like setting an observation point at a key position in the code. The program will be paused when it runs here, making it easier for us to view the values ​​of each variable and the status of the program execution.Step-by-step debugging is like a slow-motion replay on a battleship. Let us view the execution process of the code step by step without missing any details.On the Huawei DevEco Studio base, it also supports Cangjie APP mobile phone debugging, which can view debugging information in real time directly on the phone, just like directly observing the operation effect of the weapon in a practical scenario, which is convenient and efficient.
+
+## Tips for applying plug-ins in HarmonyOS Next Project
+In the actual HarmonyOS Next project development, mastering some plug-in usage skills can make our development efficiency a higher level.For example, in terms of engineering management, rational use of the plug-in's multi-engineering switching function is like quickly switching different combat modes on a warship, which can manage multiple projects at the same time and improve development efficiency.
+
+During the encoding process, the code snippet function is used to save commonly used code blocks and call them directly when needed, just like a backup weapon on a warship, which can be used at any time, saving a lot of time to write code repeatedly.When debugging, learn to use conditional breakpoints flexibly, pause program operation according to specific conditions, and accurately locate problems, just like accurately hitting targets in a complex battlefield and quickly solving problems in code.
+
+In short, Cangjie IDE plug-in is an indispensable helper in HarmonyOS Next development.Its various functions are closely coordinated to make the development process smoother and more efficient.I hope everyone can master the use of this plug-in, give full play to its advantages in the development of HarmonyOS Next, and create more excellent applications.If you encounter any problems during use, don’t worry. Let’s study together and you will definitely be able to overcome them!
