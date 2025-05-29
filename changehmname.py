@@ -1,15 +1,12 @@
 import os
 import re
 
-# 清理标题为合法文件名
 def format_title_to_filename(title):
     title = title.lstrip('#').strip()
     title = title.replace(' ', '-')
-    # 去除Windows非法字符
-    title = re.sub(r'[\\/:*?"<>|]', '', title)
+    title = re.sub(r'[\\/:*?"<>|]', '', title)  # 移除非法字符
     return title
 
-# 获取第一行非空内容
 def get_first_non_empty_line(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
@@ -18,27 +15,36 @@ def get_first_non_empty_line(filepath):
                 return line
     return "untitled"
 
+def extract_numeric_prefix(filename):
+    match = re.match(r'^(\d+)', filename)
+    return int(match.group(1)) if match else None
+
+def contains_letters(filename):
+    return re.search(r'[a-zA-Z]', filename) is not None
+
 def main():
-    # 1. 获取所有以数字开头的 .md 文件
-    md_files = [f for f in os.listdir('.') if f.endswith('.md') and re.match(r'^\d+', f)]
-    
-    # 2. 按文件名中的数字前缀排序（如01、10、2排序为 1,2,10）
-    def extract_number_prefix(fname):
-        match = re.match(r'^(\d+)', fname)
-        return int(match.group(1)) if match else float('inf')
-    
-    md_files.sort(key=extract_number_prefix)
+    all_md_files = [f for f in os.listdir('.') if f.endswith('.md') and re.match(r'^\d+', f)]
 
-    # 3. 遍历重命名
-    for idx, filename in enumerate(md_files, start=1):
-        first_line = get_first_non_empty_line(filename)
-        name_part = format_title_to_filename(first_line)
+    # 获取含英文字母的文件中的最大数字前缀
+    max_existing_number = 0
+    for f in all_md_files:
+        if contains_letters(f):
+            num = extract_numeric_prefix(f)
+            if num is not None:
+                max_existing_number = max(max_existing_number, num)
 
-        new_filename = f"{idx:02d}-{name_part}.md"
+    # 过滤不含字母的目标文件，准备重命名
+    target_files = [f for f in all_md_files if not contains_letters(f)]
+    target_files.sort(key=extract_numeric_prefix)
 
-        # 防止重名
-        if new_filename == filename:
-            continue
+    next_number = max_existing_number + 1
+
+    for filename in target_files:
+        title = get_first_non_empty_line(filename)
+        formatted_title = format_title_to_filename(title)
+        new_filename = f"{next_number:02d}-{formatted_title}.md"
+
+        # 防止重名冲突
         counter = 1
         original_new_filename = new_filename
         while os.path.exists(new_filename):
@@ -47,6 +53,7 @@ def main():
 
         os.rename(filename, new_filename)
         print(f"Renamed: {filename} -> {new_filename}")
+        next_number += 1
 
 if __name__ == '__main__':
     main()
