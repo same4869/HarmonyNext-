@@ -20,7 +20,11 @@ def extract_numeric_prefix(filename):
     return int(match.group(1)) if match else None
 
 def contains_letters(filename):
-    return re.search(r'[a-zA-Z]', filename) is not None
+    """
+    判断文件名中（不含扩展名）是否包含任何英文字母
+    """
+    name_only = os.path.splitext(os.path.basename(filename))[0]
+    return bool(re.search(r'[a-zA-Z]', name_only))
 
 def main():
     all_md_files = [f for f in os.listdir('.') if f.endswith('.md') and re.match(r'^\d+', f)]
@@ -33,11 +37,15 @@ def main():
             if num is not None:
                 max_existing_number = max(max_existing_number, num)
 
+    print(f"max_existing_number:{max_existing_number}")
+
     # 过滤不含字母的目标文件，准备重命名
     target_files = [f for f in all_md_files if not contains_letters(f)]
     target_files.sort(key=extract_numeric_prefix)
 
     next_number = max_existing_number + 1
+
+    print(f"target_files:{target_files}")
 
     for filename in target_files:
         title = get_first_non_empty_line(filename)
